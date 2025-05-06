@@ -4,9 +4,9 @@
   "description": "subscription-api",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/main.js",
     "start:dev": "nest start --watch",
     "build": "nest build",
+    "start": "node dist/main.js",
     "prebuild": "rm -rf ./dist",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -18,8 +18,8 @@
     "migration:generate": "npm run typeorm -- -d ./src/config.ts migration:generate ./src/migrations/migration",
     "migration:create": "npm run typeorm -- migration:create ./src/migrations/migration",
     "migration:revert": "npm run typeorm -- -d ./src/config.ts migration:revert",
-    "api": "docker exec -it subscription-api-api-1 bash",
-    "db": "docker exec -it subscription-api-db-1 bash"
+    "db": "docker exec -it $(docker-compose ps -q db) bash",
+    "api": "docker exec -it $(docker-compose ps -q api) bash"
   },
   "author": "Your Name",
   "license": "MIT",

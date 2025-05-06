@@ -8,8 +8,6 @@ RUN npm install
 
 COPY . .
 
-RUN rm -rf ./dist/
+EXPOSE 3000
 
-RUN npm run build
-
-CMD [ "npm", "run", "start:dev" ]
+CMD ["npm", "run", "start:dev"]
